@@ -17,6 +17,25 @@
 @synthesize searchDisplayController;
 @synthesize searchBar;
 @synthesize searchResults;
+@synthesize gitHubUserName;
+
+- (id)initWithNibNameAndGitHubUserName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil gitHubUserName:(NSString *)userName
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self setGitHubUserName:[NSString stringWithString:userName]];
+    }
+    return self;
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -24,7 +43,7 @@
     
 	// Do any additional setup after loading the view, typically from a nib.
     // In this case we are not going to use the .xib file for IB.
-    NSString *baseUrl = [[NSString alloc] initWithFormat:@"https://api.github.com/users/mteece/events"];
+    NSString *baseUrl = [[NSString alloc] initWithFormat:@"https://api.github.com/users/%@/events", [self gitHubUserName]];
     
     // Initialize the tableView through code.
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 50.0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];

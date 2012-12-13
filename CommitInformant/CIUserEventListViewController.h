@@ -18,6 +18,8 @@
     NSArray *searchResults;
     
     NSMutableArray *_events;
+    
+    NSString *gitHubUserName;
 }
 
 @property (nonatomic, retain) UITableView *tableView;
@@ -28,5 +30,7 @@
 
 @property (nonatomic, copy) NSArray *searchResults;
 @property (nonatomic, retain) NSMutableArray *events;
+@property (nonatomic, retain) NSString *gitHubUserName;
 
+- (id)initWithNibNameAndGitHubUserName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil gitHubUserName:(NSString *)userName;
 @end

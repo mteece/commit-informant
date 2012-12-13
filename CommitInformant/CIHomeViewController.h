@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CIHomeViewController : UIViewController
+@interface CIHomeViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UITextField *userNameTextFieldOutlet;
 @property (nonatomic, retain) IBOutlet UILabel *label;
 
--(IBAction)routeEventList:(id)sender;
-
+-(void) routeEventList:(NSString *)userName;
 @end

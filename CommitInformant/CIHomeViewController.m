@@ -15,6 +15,8 @@
 
 @implementation CIHomeViewController
 
+@synthesize userNameTextFieldOutlet, label;
+
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,8 +30,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
-    [_label setText:@"The Label"];
+    userNameTextFieldOutlet.delegate = self;
+    [label setText:@"The Label"];
 
 }
 
@@ -39,11 +41,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(IBAction) routeEventList:(id)sender
+-(void) routeEventList:(NSString *)userName;
 {
-    CIUserEventListViewController *nextViewController = [[CIUserEventListViewController alloc] initWithNibName:@"CIUserEventListViewController" bundle:nil];
-    //[nextViewController setRequestId:identity];
+    CIUserEventListViewController *nextViewController = [[CIUserEventListViewController alloc] initWithNibNameAndGitHubUserName:@"CIUserEventListViewController" bundle:nil gitHubUserName:userName];
     [self.navigationController pushViewController:nextViewController animated:YES];
 }
+
+//Create delegate method of textField
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    NSLog(@"%@", [textField text]);
+    if ([textField hasText]) {
+        [self routeEventList:[textField text]];
+    }
+    
+    [textField resignFirstResponder]; //to hide keyboard
+    return NO;
+}
+
 @end
