@@ -12,4 +12,6 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *label;
 
+-(IBAction)routeEventList:(id)sender;
+
 @end

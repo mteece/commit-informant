@@ -12,11 +12,21 @@
 {
     UITableView *_tableView;
     UIActivityIndicatorView *_activityIndicatorView;
+    
+    UISearchDisplayController *searchDisplayController;
+    UISearchDisplayController *searchBar;
+    NSArray *searchResults;
+    
     NSMutableArray *_events;
 }
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
+
+@property (retain, nonatomic) IBOutlet UISearchDisplayController *searchBar;
+@property (retain, nonatomic) IBOutlet UISearchDisplayController *searchDisplayController;
+
+@property (nonatomic, copy) NSArray *searchResults;
 @property (nonatomic, retain) NSMutableArray *events;
 
 @end

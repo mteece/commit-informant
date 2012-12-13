@@ -43,11 +43,11 @@
       UITextAttributeTextShadowColor,
       [NSValue valueWithUIOffset:UIOffsetMake(1, 1)],
       UITextAttributeTextShadowOffset,
-      [UIFont fontWithName:@"Cantarell-Oblique" size:18.0],
+      [UIFont fontWithName:@"Cantarell-Regular" size:18.0],
       UITextAttributeFont,
       nil]];
     
-    [[UILabel appearance] setFont:[UIFont fontWithName:@"Cantarell-BoldOblique" size:12.0]];
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Cantarell-Regular" size:12.0]];
     NSLog(@" %@", [UIFont fontNamesForFamilyName:@"Cantarell"]);
 }
 
